@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ITEST智能测评管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/datetimepicker.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="app/core/styles/css/peskin.css" />
+	<!--[if lt IE 9]>
+	<script src="app/core/styles/js/html5shiv.min.js"></script>
+	<script src="app/core/styles/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="app/core/styles/js/jquery.min.js"></script>
+	<script src="app/core/styles/js/jquery.json.js"></script>
+	<script src="app/core/styles/js/jquery-ui.min.js"></script>
+	<script src="app/core/styles/js/bootstrap.min.js"></script>
+	<script src="app/core/styles/js/bootstrap-datetimepicker.js"></script>
+
+	<script src="app/core/styles/js/all.fine-uploader.min.js"></script>
+
+	<script src="app/core/styles/js/ckeditor/ckeditor.js"></script>
+	<script src="app/core/styles/js/plugin.js"></script>
+	<script src="app/exam/styles/js/plugin.js"></script>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+<div class="container-fluid box" style="margin:0px auto;padding-top:0px;overflow:visible">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-10">
+				<h2 style="color:#337AB7;"><a href="index.php"><img src="app/core/styles/img/logo.png" style="height:48px;margin-top:-5px;"/>&nbsp;ITEST智能测评管理系统</a></h2>
+			</div>
+			<div class="col-xs-2" style="padding-top:22px;">
+				<ul class="list-unstyled list-inline">
+										<li>
+						<div class="btn-group">
+							<button type="button" class="btn btn-info"><em class="glyphicon glyphglyphicon glyphicon-user"></em> bpwolf</button>
+							<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle Dropdown</span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="index.php?user-center"><em class="glyphicon glyphglyphicon glyphicon-user"></em> 用户中心</a></li>
+																<li><a href="index.php?core-master"><em class="glyphicon glyphglyphicon glyphicon-dashboard"></em> 后台管理</a></li>								<li><a class="ajax" href="index.php?user-app-logout"><em class="glyphicon glyphglyphicon glyphicon-log-out"></em> 退出</a></li>
+							</ul>
+						</div>
+					</li>
+									</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid navbar">
+	<div class="row-fluid">
+		<div class="main">
+			<div class="col-xs-12">
+				<ul class="list-unstyled list-inline">
+					<li class="menu col-xs-1">
+						<a href="index.php?core-master">全局配置</a>
+					</li>
+															<li class="menu col-xs-1">
+						<a href="index.php?user-master">用户管理</a>
+					</li>
+																				<li class="menu col-xs-1 active">
+						<a href="index.php?exam-master">测评管理</a>
+					</li>
+																														<li class="menu col-xs-1">
+						<a href="index.php?document-master">文件管理</a>
+					</li>
+																														<li class="menu col-xs-1">
+						<a href="index.php?bank-master">财务管理</a>
+					</li>
+																				<li class="menu col-xs-1">
+						<a href="index.php?course-master">课程管理</a>
+					</li>
+														</ul>
+			</div>
+		</div>
+	</div>
+</div><div class="container-fluid" id="questioncontent">
+	<div class="row-fluid">
+		<div class="main box">
+
+			<div class="col-xs-3" id="questionbar">
+				<dl class="clear" style="width:270px;" data-spy="affix" data-offset-top="235">
+					<dt class="float_l"><h4>&nbsp;</h4></dt>
+					<ul class="nav nav-tabs" role="tablist">
+																																										<li role="presentation" class="active"><a href="#qt_1" aria-controls="home" role="tab" data-toggle="tab">一</a></li>
+																																																																																			</ul>
+					<div class="tab-content" style="margin-top:5px;" id="questionindex">
+																																										<div role="tabpanel" class="tab-pane tableindex active" id="qt_1">
+										                			                							<a id="sign_939" href="#question_939" class="btn btn-default">1</a>
+										                							<a id="sign_940" href="#question_940" class="btn btn-default">2</a>
+										                							<a id="sign_941" href="#question_941" class="btn btn-default">3</a>
+										                							<a id="sign_942" href="#question_942" class="btn btn-default">4</a>
+										                							<a id="sign_943" href="#question_943" class="btn btn-default">5</a>
+										                							<a id="sign_944" href="#question_944" class="btn btn-default">6</a>
+										                							<a id="sign_945" href="#question_945" class="btn btn-default">7</a>
+										                							<a id="sign_946" href="#question_946" class="btn btn-default">8</a>
+										                							<a id="sign_947" href="#question_947" class="btn btn-default">9</a>
+										                							<a id="sign_948" href="#question_948" class="btn btn-default">10</a>
+										                							<a id="sign_949" href="#question_949" class="btn btn-default">11</a>
+										                							<a id="sign_950" href="#question_950" class="btn btn-default">12</a>
+										                							<a id="sign_951" href="#question_951" class="btn btn-default">13</a>
+										                							<a id="sign_952" href="#question_952" class="btn btn-default">14</a>
+										                							<a id="sign_953" href="#question_953" class="btn btn-default">15</a>
+										                							<a id="sign_954" href="#question_954" class="btn btn-default">16</a>
+										                							<a id="sign_955" href="#question_955" class="btn btn-default">17</a>
+										                							<a id="sign_956" href="#question_956" class="btn btn-default">18</a>
+										                							<a id="sign_957" href="#question_957" class="btn btn-default">19</a>
+										                							<a id="sign_958" href="#question_958" class="btn btn-default">20</a>
+																				</div>
+																																																																																			</div>
+				</dl>
+			</div>
+			<div class="col-xs-9 split pull-right" style="padding:0px;position:relative;">
+				<div class="box itembox">
+					<h2 class="text-center tt">人教版英语五年级测评卷1</h2>
+				</div>
+																												<hr />
+				<div class="box itembox">
+					<blockquote class="questype">一、单选题</blockquote>
+				</div>
+					            	            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第1题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('939');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_939">
+							<input id="time_939" type="hidden" name="time[939]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>I&rsquo;m in trouble now __ of the three problems is easy to solve.</p>					</div>
+															<div class="choice">
+	                	<p>A:Either</p>
+
+<p>B:Neither</p>
+
+<p>C:No</p>
+
+<p>D:None</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>D</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第2题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('940');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_940">
+							<input id="time_940" type="hidden" name="time[940]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>Students in this school are __ from Beijing.</p>					</div>
+															<div class="choice">
+	                	<p>A:all</p>
+
+<p>B:both</p>
+
+<p>C:many</p>
+
+<p>D:a few</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>A</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第3题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('941');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_941">
+							<input id="time_941" type="hidden" name="time[941]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>Lily and Lucy __ agree with us.</p>					</div>
+															<div class="choice">
+	                	<p>A:all</p>
+
+<p>B:both</p>
+
+<p>C:many</p>
+
+<p>D:no</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第4题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('942');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_942">
+							<input id="time_942" type="hidden" name="time[942]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>__ will spend the summery vacation in Qingdao.</p>					</div>
+															<div class="choice">
+	                	<p>A:He, you and I</p>
+
+<p>B:You, he and I</p>
+
+<p>C:I, you and he</p>
+
+<p>D:He, I and you</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第5题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('943');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_943">
+							<input id="time_943" type="hidden" name="time[943]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>-Who is that man?<br />
+- __ our new math teacher.</p>					</div>
+															<div class="choice">
+	                	<p>A:That is</p>
+
+<p>B:She is</p>
+
+<p>C:It is</p>
+
+<p>D:He is</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>D</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第6题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('944');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_944">
+							<input id="time_944" type="hidden" name="time[944]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>There are many __ in our hospital, but there are only ten __ .</p>					</div>
+															<div class="choice">
+	                	<p>A:woman nurse, woman doctor</p>
+
+<p>B:women nurses, women doctor</p>
+
+<p>C:woman nurses, woman doctors</p>
+
+<p>D:women nurse, women doctor</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第7题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('945');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_945">
+							<input id="time_945" type="hidden" name="time[945]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>They are some __ on the table.</p>					</div>
+															<div class="choice">
+	                	<p>A:knife</p>
+
+<p>B:knifes</p>
+
+<p>C:knives</p>
+
+<p>D:a knife</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>C</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第8题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('946');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_946">
+							<input id="time_946" type="hidden" name="time[946]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>-How are the twins?<br />
+-They are __ fine.</p>					</div>
+															<div class="choice">
+	                	<p>A:all</p>
+
+<p>B:both</p>
+
+<p>C:many</p>
+
+<p>D:no</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第9题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('947');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_947">
+							<input id="time_947" type="hidden" name="time[947]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>-Look, is this your sister?<br />
+-Yes, __ .</p>					</div>
+															<div class="choice">
+	                	<p>A:he is</p>
+
+<p>B:she is</p>
+
+<p>C:they are</p>
+
+<p>D:it is</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>D</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第10题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('948');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_948">
+							<input id="time_948" type="hidden" name="time[948]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>She is a classmate of __ .</p>					</div>
+															<div class="choice">
+	                	<p>A:me</p>
+
+<p>B:I</p>
+
+<p>C:mine</p>
+
+<p>D:my</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>C</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第11题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('949');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_949">
+							<input id="time_949" type="hidden" name="time[949]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>__ piano is too old, but she still likes playing it.</p>					</div>
+															<div class="choice">
+	                	<p>A:Her</p>
+
+<p>B:She&rsquo;s</p>
+
+<p>C:Hers</p>
+
+<p>D:Her&rsquo;s</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>A</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第12题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('950');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_950">
+							<input id="time_950" type="hidden" name="time[950]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>___will be in diffent teams in the final game.</p>					</div>
+															<div class="choice">
+	                	<p>A:We, you and they</p>
+
+<p>B:You, we and they</p>
+
+<p>C:They, you and we</p>
+
+<p>D:They, we and you</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>A</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第13题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('951');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_951">
+							<input id="time_951" type="hidden" name="time[951]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>The twins have lived in Japan for some time, so they can speak __ Japanese.</p>					</div>
+															<div class="choice">
+	                	<p>A:little</p>
+
+<p>B:a little</p>
+
+<p>C:few</p>
+
+<p>D:a few</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第14题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('952');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_952">
+							<input id="time_952" type="hidden" name="time[952]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>My class __ 40 students, Now the class __ English.</p>					</div>
+															<div class="choice">
+	                	<p>A:has; is reading</p>
+
+<p>B:has; are reading</p>
+
+<p>C:have; are reading</p>
+
+<p>D:have; is reading</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第15题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('953');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_953">
+							<input id="time_953" type="hidden" name="time[953]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>Kate needs an empty paper cup, __ rice and __ paper to make a shaker.</p>					</div>
+															<div class="choice">
+	                	<p>A:a; a some;</p>
+
+<p>B:a some;</p>
+
+<p>C:a pice of some;</p>
+
+<p>D:a pice</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>C</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第16题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('954');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_954">
+							<input id="time_954" type="hidden" name="time[954]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>Which of the following sentences is right?<br />
+---_______</p>					</div>
+															<div class="choice">
+	                	<p>A:I like the Water Festival of Dai people in Yunnan.</p>
+
+<p>B:I like the water Festival of Dai people in Yunnan.</p>
+
+<p>C:I like the water festival of Dai people in Yunnan.</p>
+
+<p>D:I like the water festival of dai people in Yunnan.</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>A</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第17题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('955');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_955">
+							<input id="time_955" type="hidden" name="time[955]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>__ is your father?<br />
+&mdash;A soldier.</p>					</div>
+															<div class="choice">
+	                	<p>A:Where</p>
+
+<p>B:What</p>
+
+<p>C:Who</p>
+
+<p>D:When</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第18题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('956');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_956">
+							<input id="time_956" type="hidden" name="time[956]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>Don&rsquo;t worry. __ will be ok.</p>					</div>
+															<div class="choice">
+	                	<p>A:Everything</p>
+
+<p>B:Anything</p>
+
+<p>C:Something</p>
+
+<p>D:Nothing</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>A</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第19题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('957');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_957">
+							<input id="time_957" type="hidden" name="time[957]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>He can&rsquo;t hear you because there is __ noise here.</p>					</div>
+															<div class="choice">
+	                	<p>A:too much</p>
+
+<p>B:so many</p>
+
+<p>C:very much</p>
+
+<p>D:much too</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>A</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+					            				<div class="box itembox paperexamcontent">
+					<h4 class="title">
+						第20题
+						<span class="pull-right">
+							<a class="btn btn-primary qicon" onclick="javascript:favorquestion('958');"><i class="glyphicon glyphicon-heart-empty"></i></a>
+							<a name="question_958">
+							<input id="time_958" type="hidden" name="time[958]"/>
+						</span>
+					</h4>
+					<div class="choice">
+						</a><p>how is __ going?<br />
+not bad.</p>					</div>
+															<div class="choice">
+	                	<p>A:you</p>
+
+<p>B:it</p>
+
+<p>C:he</p>
+
+<p>D:i</p>	                </div>
+	                	                					<div class="decidediv" style="position:relative;">
+	                	<table class="table table-hover table-bordered">
+            				<tr class="info">
+	                    		<td width="15%">正确答案：</td>
+	                    		<td>B</td>
+	                    	</tr>
+	                    	<tr>
+	                    		<td>答案解析：</td>
+	                    		<td></td>
+	                    	</tr>
+	                	</table>
+	                </div>
+				</div>
+																																																															</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid box" id="footer">
+	<div class="row-fluid">
+		<div class="main itembox">
+			<div class="col-xs-12">
+				<ul class="list-unstyled">
+					<li class="text-center"><a href="http://www.pm3721.com">Copyright © 杰学教育  2016-2017</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div></body>
+</html>

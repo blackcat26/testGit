@@ -1,0 +1,34 @@
+		<header class="container-fluid">
+		    <!--
+			<h5 class="text-center">
+				<em style="font-size:2rem;" class="pull-left glyphicon glyphicon-chevron-left" onclick="javascript:$.goPrePage();"></em>
+				正式考试
+				<em style="font-size:2rem;" class="pull-right glyphicon glyphicon-home" onclick="javascript:$.goPage($('#page1'));"></em>
+			</h5>
+			-->
+		</header>
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<p class="alert alert-danger" style="margin-top:1rem;">本考场开启时间
+					不限 ；
+					考试次数 不限 ；
+					抽卷规则 系统随机抽卷。
+				</p>
+				<!-- 是否设置考试开始、结束时间 -->
+				                                        <div style="clear:both;overflow:hidden;margin-top:0.5rem;padding:1rem 0rem;">
+                        <div class="col-xs-4">
+                                                        <a id="beginExamBtn" action-before="clearStorage" href="index.php?exam-phone-exam-selectquestions&examid=6" class="ajax" data-page="paper" data-target="paper">
+                                                        </a>
+                        </div>
+                        <div class="col-xs-8" style="padding:0.2rem;">
+                            <div class="text-left" style="padding:0.2rem;">
+                                                                <a action-before="clearStorage" href="index.php?exam-phone-exam-selectquestions&examid=6" class="ajax" data-page="paper" data-target="paper">
+                                                                </a>
+                            </div>
+                        </div>
+                    </div>
+                                    			</div>
+		</div>
+		<script>
+            $('#beginExamBtn').click();
+		</script>

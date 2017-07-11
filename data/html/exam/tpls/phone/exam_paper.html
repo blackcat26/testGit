@@ -1,0 +1,750 @@
+        <style>
+            .selectorNav{
+                position:fixed;
+                bottom:0;
+                left:0;
+                width:100%;
+                padding:0.6rem 1.2rem 0.6rem 0;
+                border-top:1px solid #ccc;
+            }
+            .selectorItem{
+                width:3.4rem;
+                line-height:3.4rem;
+                padding:0;
+                margin-left:1.2rem;
+                border:1px solid #ccc;
+            }
+            .selectorNext{
+                height:3.4rem;
+                line-height:2.4rem;
+            }
+        </style>
+		<header class="container-fluid" style="background-color:#337AB7;">
+		    <!--
+			<h5 class="text-center">
+				<em style="font-size:2rem;" class="pull-left glyphicon glyphicon-chevron-left" onclick="javascript:$.goPrePage();"></em>
+				人教版五年级数学测评卷1				<em style="font-size:2rem;" class="pull-right glyphicon glyphicon-home" onclick="javascript:$.goPage($('#page1'));"></em>
+			</h5>
+			-->
+		</header>
+		<div class="container-fluid" style="padding-bottom:4.7rem;padding-top:5.6rem;">
+			<div class="row-fluid">
+			    <!--考题跳转导航-->
+				<div class="col-xs-12" id="questionbar" style="display:none;">
+					<dl class="clear" id="questionindex">
+																																																						<dt class="float_l"><h4 class="title">一、单选题</h4></dt>
+						<dd class="tableindex">
+										                			                			                							<a style="margin-bottom:0.5rem;" id="sign_934" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('934');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">1</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_935" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('935');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">2</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_936" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('936');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">3</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_937" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('937');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">4</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_938" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('938');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">5</a>
+																				</dd>
+																																																																																				<dt class="float_l"><h4 class="title">二、判断题</h4></dt>
+						<dd class="tableindex">
+										                			                			                							<a style="margin-bottom:0.5rem;" id="sign_924" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('924');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">1</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_925" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('925');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">2</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_926" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('926');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">3</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_927" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('927');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">4</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_928" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('928');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">5</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_929" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('929');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">6</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_930" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('930');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">7</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_931" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('931');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">8</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_932" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('932');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">9</a>
+										                			                							<a style="margin-bottom:0.5rem;" id="sign_933" href="javascript:;" onclick="javascript:$.leftMenu($('#questionbar'));gotoquestion('933');$('#questionbar').queue(function(){$('#form1').toggle();$(this).dequeue();});" class="btn btn-default">10</a>
+																				</dd>
+																							</dl>
+				</div>
+				<!--考题模块-->
+				<form id="form1" name="form1" method="post" action="index.php?exam-phone-exam-score" class="col-xs-12" style="padding:0px;">
+					<input type="hidden" name="insertscore" value="1"/>
+																																								<h4 class="title questionpanel" id="questype_1">一、单选题</h4>
+						                	                	                					<div class="paperexamcontent" id="questions_934" rel="1" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第1题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('934',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_934">
+								<input id="time_934" type="hidden" name="time[934]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>一个正方体的棱长从4.5 cm增加到6 cm，那么表面积增加了( )。</p>
+
+<p>A、27 cm<span style="position: relative; font-size: 12px; line-height: 0; vertical-align: baseline; top: -0.5em;">2</span></p>
+
+<p>B、94.5 cm<span style="position: relative; font-size: 12px; line-height: 0; vertical-align: baseline; top: -0.5em;">2</span></p>
+
+<p>C、216 cm<span style="position: relative; font-size: 12px; line-height: 0; vertical-align: baseline; top: -0.5em;">2</span></p>
+
+<p>D、124.875 cm<span style="position: relative; font-size: 12px; line-height: 0; vertical-align: baseline; top: -0.5em;">2</span></p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[934]" rel="934" value="A" />
+		                            		                                A                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[934]" rel="934" value="B" />
+		                            		                                B                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[934]" rel="934" value="C" />
+		                            		                                C                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[934]" rel="934" value="D" />
+		                            		                                D                                                                     </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(1);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(1);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_935" rel="1" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第2题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('935',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_935">
+								<input id="time_935" type="hidden" name="time[935]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>体积为8.1 dm<span style="position: relative; font-size: 12px; line-height: 0; vertical-align: baseline; top: -0.5em;">3</span>的石块放进棱长3 dm的水槽里，水面会上升( )。</p>
+
+<p>A、2.7 dm</p>
+
+<p>B、0.9 dm</p>
+
+<p>C、3 dm</p>
+
+<p>D、9 dm</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[935]" rel="935" value="A" />
+		                            		                                A                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[935]" rel="935" value="B" />
+		                            		                                B                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[935]" rel="935" value="C" />
+		                            		                                C                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[935]" rel="935" value="D" />
+		                            		                                D                                                                     </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(2);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(0);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(2);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_936" rel="1" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第3题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('936',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_936">
+								<input id="time_936" type="hidden" name="time[936]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>棱长1 m的正方体可以切成( )个棱长为1 cm的正方体。</p>
+
+<p>A、100</p>
+
+<p>B、1000</p>
+
+<p>C、100000</p>
+
+<p>D、1000000</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[936]" rel="936" value="A" />
+		                            		                                A                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[936]" rel="936" value="B" />
+		                            		                                B                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[936]" rel="936" value="C" />
+		                            		                                C                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[936]" rel="936" value="D" />
+		                            		                                D                                                                     </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(3);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(1);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(3);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_937" rel="1" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第4题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('937',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_937">
+								<input id="time_937" type="hidden" name="time[937]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>正方体的棱长扩大2倍，表面积扩大( )倍，体积扩大( )倍。</p>
+
+<p>A、2</p>
+
+<p>B、4</p>
+
+<p>C、6</p>
+
+<p>D、8</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[937]" rel="937" value="A" />
+		                            		                                A                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[937]" rel="937" value="B" />
+		                            		                                B                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[937]" rel="937" value="C" />
+		                            		                                C                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[937]" rel="937" value="D" />
+		                            		                                D                                                                     </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(4);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(2);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(4);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_938" rel="1" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第5题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('938',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_938">
+								<input id="time_938" type="hidden" name="time[938]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>用长64 cm的铁丝可焊一个长10 cm，宽4 cm，高 ( &nbsp;&nbsp; )的长方体框架。<br />
+A、1 cm</p>
+
+<p>B、2 cm</p>
+
+<p>C、3 cm</p>
+
+<p>D、4 cm<br />
+&nbsp;</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[938]" rel="938" value="A" />
+		                            		                                A                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[938]" rel="938" value="B" />
+		                            		                                B                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[938]" rel="938" value="C" />
+		                            		                                C                                                                     </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[938]" rel="938" value="D" />
+		                            		                                D                                                                     </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(5);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(3);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(5);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+																																																																											<h4 class="title questionpanel" id="questype_3">二、判断题</h4>
+						                	                	                					<div class="paperexamcontent" id="questions_924" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第1题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('924',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_924">
+								<input id="time_924" type="hidden" name="time[924]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>表面积相等的两个正方体，体积一定相等。</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[924]" rel="924" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[924]" rel="924" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(6);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(4);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(6);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_925" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第2题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('925',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_925">
+								<input id="time_925" type="hidden" name="time[925]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>体积相等的两个长方体，表面积一定相等。</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[925]" rel="925" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[925]" rel="925" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(7);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(5);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(7);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_926" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第3题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('926',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_926">
+								<input id="time_926" type="hidden" name="time[926]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>长方体是特殊的正方体。</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[926]" rel="926" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[926]" rel="926" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(8);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(6);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(8);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_927" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第4题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('927',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_927">
+								<input id="time_927" type="hidden" name="time[927]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>容积的计算方法是把物体外面的长、宽、高测量出来，再相乘.</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[927]" rel="927" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[927]" rel="927" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(9);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(7);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(9);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_928" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第5题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('928',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_928">
+								<input id="time_928" type="hidden" name="time[928]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>3x＝x&bull;x&bull;x，x<span style="position: relative; font-size: 12px; line-height: 0; vertical-align: baseline; top: -0.5em;">3</span>＝x＋x＋x</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[928]" rel="928" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[928]" rel="928" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(10);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(8);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(10);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_929" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第6题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('929',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_929">
+								<input id="time_929" type="hidden" name="time[929]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>把一个长方体切成两个长方体，两个长方体的表面积之和与体积之和都不变。</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[929]" rel="929" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[929]" rel="929" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(11);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(9);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(11);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_930" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第7题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('930',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_930">
+								<input id="time_930" type="hidden" name="time[930]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>一个物体的容积一定比体积小。</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[930]" rel="930" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[930]" rel="930" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(12);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(10);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(12);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_931" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第8题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('931',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_931">
+								<input id="time_931" type="hidden" name="time[931]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>一个正方体的棱长总和是6 dm，那么它的表面积是216 dm<span style="position: relative; font-size: 12px; line-height: 0; vertical-align: baseline; top: -0.5em;">2</span>。</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[931]" rel="931" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[931]" rel="931" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(13);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(11);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(13);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_932" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第9题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('932',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_932">
+								<input id="time_932" type="hidden" name="time[932]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>棱长为6 cm的正方体表面积和体积相等。</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[932]" rel="932" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[932]" rel="932" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                                                        <a class="pull-right btn btn-default selectorNext" onclick="javascript:gotoindexquestion(14);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+                                		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(12);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																					<a class="pull-right btn btn-primary" onclick="javascript:gotoindexquestion(14);">下一题<span class="glyphicon glyphicon-chevron-right"></span></a>
+													</div>
+						-->
+					</div>
+						                	                					<div class="paperexamcontent" id="questions_933" rel="3" style="clear:both;overflow:hidden;background:#FFFFFF;margin-top:0.5rem;padding:1rem;">
+						<h4 class="title">
+							第10题
+							<span class="pull-right">
+								<a class="hidden btn text-info qicon" href="javascript:;" onclick="javascript:signQuestion('933',this);"><i class="glyphicon glyphicon-bookmark"></i></a>
+								<a name="question_933">
+								<input id="time_933" type="hidden" name="time[933]"/>
+							</span>
+						</h4>
+						<div class="choice">
+							</a><p>一个长方体中，最多有8条棱完全相等、6个面完全相同。</p>						</div>
+																		<div class="selector text-nowrap selectorNav" >
+	                    			                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[933]" rel="933" value="A" />
+		                            		                                对
+		                                		                                                             </label>
+		                        		                        		                        <label class="radio-inline img-circle text-center selectorItem"><input type="radio" class="hidden" name="question[933]" rel="933" value="B" />
+		                            		                                错
+		                                		                                                             </label>
+		                        		                        		                        
+		                        		                    	                    </div>
+												<!--
+						<div class="toolbar" style="padding:1rem 0.5rem;">
+														<a class="btn btn-default" onclick="javascript:gotoindexquestion(13);"><span class="glyphicon glyphicon-chevron-left"></span>上一题</a>
+																				</div>
+						-->
+					</div>
+																													</form>
+			</div>
+		</div>
+		<div class="container-fluid text-center" style="background-color:#337AB7;z-index:9999;position:fixed;top:0px;border-top:1px solid #E9E9E9;padding:0.8rem 15px;">
+			<div style="clear:both;background-color:#337AB7;padding-top:0px;border:0px;padding:0rem;padding-bottom:0.8rem;" class="input-group-addon footer">
+				<div class="col-xs-3">
+					<div class="text-center" style="height:3.2rem;padding:0.2rem;">
+						<a href="javascript:;" onclick="gotopreface();">
+							<h5 style="line-height:2rem;color:#FFFFFF;"><em class="glyphicon glyphicon-th"></em> 题序</h5>
+						</a>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="text-center hidden" style="height:3.2rem;padding:0.2rem;>
+						<a href="index.php?item-phone-cart" class="ajax" data-page="cart" data-target="cart">
+							<h4 style="line-height:2rem;color:#FFFFFF;"><em class="glyphicon glyphicon-time"></em> <span id="timer_h">00</span><span>：</span><span id="timer_m">00</span><span>：</span><span id="timer_s">00</span></h4>
+						</a>
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="text-center" style="height:3.2rem;padding:0.2rem;">
+						<a href="#submodal" role="button" data-toggle="modal">
+							<h5 style="line-height:2rem;color:#FFFFFF;"><em class="glyphicon glyphicon-list-alt"></em> 交卷</h5>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="submodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="margin-top:5.6rem;">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">交卷</h4>
+					</div>
+					<div class="modal-body">
+						<p>共有试题 <span class="allquestionnumber">50</span> 题，已做 <span class="yesdonumber">0</span> 题。您确认要交卷吗？</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" onclick="javascript:submitPaper();" class="btn btn-primary">确定交卷</button>
+						<button aria-hidden="true" class="btn" type="button" data-dismiss="modal">再检查一下</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		var qindex = 0;
+		function gotoquestion(questid)
+		{
+			$(".questionpanel").hide();
+			$(".paperexamcontent").hide();
+			$("#questions_"+questid).show();
+			$("#questype_"+$("#questions_"+questid).attr('rel')).show();
+		}
+		function gotoindexquestion(index)
+		{
+			$(".questionpanel").hide();
+			$(".paperexamcontent").hide();
+			$(".paperexamcontent").eq(index).show();
+			$("#questype_"+$(".paperexamcontent").eq(index).attr('rel')).show();
+		}
+		function gotopreface(){
+		    var q = $('#questionbar');
+            if(!q.is(":animated")){
+                if(q.attr('data-isopen') == 'yes'){
+                    $.leftMenu(q);
+                    q.queue(function(){
+                        $('#form1').toggle();
+                        $(this).dequeue();
+                    });
+                } else  {
+                    $('#form1').toggle();
+                    $.leftMenu(q);
+                }
+            }
+            q = null;
+		}
+		$(document).ready(function(){
+			$.get('index.php?exam-phone-index-ajax-lefttime&rand'+Math.random(),function(data){
+				var setting = {
+					time:30,
+					hbox:$("#timer_h"),
+					mbox:$("#timer_m"),
+					sbox:$("#timer_s"),
+					finish:function(){
+						submitPaper();
+					}
+				}
+				setting.lefttime = parseInt(data);
+				countdown(setting);
+			});
+
+			(function(){
+				$(".questionpanel").hide();
+				$(".questionpanel:first").show();
+				$(".paperexamcontent").hide();
+				$(".paperexamcontent:first").show();
+			})();
+
+			setInterval(saveanswer,120000);
+
+			initData = $.parseJSON(storage.getItem('questions'));
+			if(initData){
+				for(var p in initData){
+					if(p!='set')
+					formData[p]=initData[p];
+					$("#time_"+$('[name="'+p+'"]').attr('rel')).val(initData[p].time);
+				}
+
+				var textarea = $('#form1 textarea');
+				$.each(textarea,function(){
+					var _this = $(this);
+					if(initData[_this.attr('name')])
+					{
+						_this.val(initData[_this.attr('name')].value);
+						batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+					}
+				});
+				var texts = $('#form1 :input[type=text]');
+				$.each(texts,function(){
+					var _this = $(this);
+					if(initData[_this.attr('name')])
+					{
+						_this.val(initData[_this.attr('name')]?initData[_this.attr('name')].value:'');
+						if(initData[_this.attr('name')].value && initData[_this.attr('name')].value != '')
+						batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+					}
+				});
+
+				var radios = $('#form1 :input[type=radio]');
+				$.each(radios,function(){
+					var _= this, v = initData[_.name]?initData[_.name].value:null;
+					var _this = $(this);
+					if(v!=''&&v==_.value){
+						_.checked = true;
+						batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+					}else{
+						_.checked=false;
+					}
+				});
+
+				var checkboxs=$('#form1 :input[type=checkbox]');
+				$.each(checkboxs,function(){
+					var _=this,v=initData[_.name]?initData[_.name].value:null;
+					var _this = $(this);
+					if(v!=''&&v==_.value){
+						_.checked=true;
+						batmark(_this.attr('rel'),initData[_this.attr('name')].value);
+					}else{
+						_.checked=false;
+					}
+				});
+			}
+
+			$('#form1 :input[type=text]').change(function(){
+				var _this=$(this);
+				var p=[];
+				p.push(_this.attr('name'));
+				p.push(_this.val());
+				p.push(Date.parse(new Date())/1000);
+				$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+				set.apply(formData,p);
+				markQuestion(_this.attr('rel'),true);
+			});
+
+			$('#form1 :input[type=radio]').change(function(){
+				var _=this;
+				var _this=$(this);
+				var p=[];
+				var o=_this.parent().siblings('.bg-primary');
+				p.push(_.name);
+				if(_.checked){
+				    if(!!o){
+				        o.removeClass('bg-primary');
+				    }
+				    _this.parent().addClass('bg-primary');
+					p.push(_.value);
+					p.push(Date.parse(new Date())/1000);
+					$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+					set.apply(formData,p);
+				}else{
+					p.push('');
+					p.push(null);
+					set.apply(formData,p);
+				}
+				markQuestion(_this.attr('rel'));
+			});
+
+			$('#form1 textarea').change(function(){
+				var _= this;
+				var _this=$(this);
+				var p=[];
+				p.push(_.name);
+				p.push(_.value);
+				p.push(Date.parse(new Date())/1000);
+				$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+				set.apply(formData,p);
+				markQuestion(_this.attr('rel'),true);
+			});
+			$('#form1 :input[type=checkbox]').change(function(){
+				var _= this;
+				var _this = $(this);
+				var p=[];
+				p.push(_.name);
+				if(_.checked){
+					p.push(_.value);
+					p.push(Date.parse(new Date())/1000);
+					$('#time_'+_this.attr('rel')).val(Date.parse(new Date())/1000);
+					set.apply(formData,p);
+				}else{
+					p.push('');
+					p.push(null);
+					set.apply(formData,p);
+				}
+				markQuestion(_this.attr('rel'));
+			});
+			$('.allquestionnumber').html($('.paperexamcontent').length);
+			$('.yesdonumber').html($('#questionindex .btn-primary').length);
+		});
+		</script>
+	

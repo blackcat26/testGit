@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>学情报告</title>
+    <style>
+        html,body{
+            padding:0;
+            margin:0;
+            height:100%;
+            background-color: #d6efff;
+        }
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        .report{
+            width:100%;
+            height:100%;
+        }
+        .report .navTop{
+            min-height:120px;
+            width:100%;
+            background-color: #63cfff;
+            position:absolute;
+            top:0;
+            left:0;
+            text-align: center;
+            z-index:10000;
+        }
+        .report .reBtn{
+            position: absolute;
+            top:0;
+            left:0;
+            padding:33px;
+        }
+        .report .reBtn span{
+            display: inline-block;
+            width:35px;
+            height:50px;
+            background: transparent url(img/pic.png) no-repeat 0 0;
+            background-size: 140px 250px;
+        }
+        .report .navTop h2{
+            color:#fff;
+            font-size: 28px;
+            font-family: '宋体';
+            margin-top: 14px;
+        }
+        .report .navTop h3{
+            color:#000;
+            font-size: 40px;
+            font-family: '微软雅黑';
+            margin-top: 4px;
+        }
+        .report img{
+            width:100%;
+            height:100%;
+        }
+
+        .list li{
+            background-color: #fff;
+            margin:0 18px 18px;
+            padding-left: 20px;
+        }
+        .list li:first-child{
+            margin-top: 18px;
+        }
+        .list h3{
+            display: inline-block;
+            width:33%;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 370%;
+            vertical-align: middle;
+        }
+        .list div{
+            display: inline-block;
+            width:67%;
+            vertical-align: middle;
+        }
+        .list div p{
+            font-size: 20px;
+            line-height: 200%;
+        }
+    </style>
+    <script src="avalon.modern.js"></script>
+    <script src="echart.min.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=d7d70f29c0aa6618e03c257b1f32ae47"></script>
+</head>
+<body>
+<script>
+    var vm = avalon.define({
+        $id:'report',
+        data:[
+            {
+                url:'img/main.png',
+                title:'2016年下学期第 10 周学情报告'
+            },{
+                url:'img/t1.png',
+                title:'2016年下学期第 10 周学习任务',
+                title2:'学习任务指数',
+                dis:'<p>本周学习任务<b>24</b>个，已完成<b>14</b>个，未完成任务数<b>10</b>个，<br>已经完成<b>79</b>个任务，任务完成率<b>92%</b>，正确率<b>80%</b>，超过了<b>62%</b>的同学。</p>'
+            },{
+                url:'img/t2.png',
+                title:'知识点掌握情况',
+                title2:'知识点掌握指数',
+                dis:'<p>已经测试<b>118</b>个知识点，掌握率<b>88%</b>，超过了<b>77%</b>的同学。</p>'
+            },{
+                url:'img/t3.png',
+                title:'课外阅读指数',
+                title2:'课外阅读指数',
+                dis:'<p>已阅读课外图书<b>17</b>册，超过了<b>42%</b>的同学。</p>'
+            },{
+                url:'img/t4.png',
+                title:'健康指数',
+                title2:'健康指数',
+                dis:'<p>平均睡眠时间<b>7.4</b>个小时，未达到建议每日睡眠<b>8.5</b>个小时标准。</p>'
+            },{
+                url:'img/t5.png',
+                title:'学习成绩分析',
+                title2:'历史成绩',
+                dis:'<p>三年级第一学期期末考试成绩<b>等级A</b>个，最高分数语文<b>98分</b>，<br>最低分数数学<b>82分</b>。</p>'
+            },{
+                url:'img/t6.png',
+                title:'教师评语',
+                title2:'教师评语',
+                dis:'<p>该生在校期间学习积极主动，性格较为沉稳，建议家长多鼓励参加集体活动，扩大课外阅读。</p>'
+            },{
+                url:'',
+                title:'',
+                title2:'同学评语',
+                dis:'<p>你聪明活泼，顽皮好动，课堂上只要认真听课，总能很快掌握；作业整洁书写认真，但你有时不太珍惜时间，课堂听课效率不高。</p>'
+            },{
+                url:'img/t81.png',
+                title:'2016年下学期第 10 周生活轨迹',
+                title2:'生活轨迹',
+                dis:'<p>到校时间通常为早上8点10分到8点20分之间，<br>离校时间通常为下午4点50分到5点11分之间，<br>最爱去的地方是校图书馆和食堂。</p>'
+            },{
+                url:'img/t9.png',
+                title:'',
+                title2:'校园消费',
+                dis:'<p>本周校内消费总计342.5元，食堂餐饮消费232元，购买文具110.5元，<br>本学期校园消费总计3376.4元。</p>'
+            }
+        ],
+        page1Data:{
+            list:[
+                {
+                    name:'语',
+                    color:'#d6aa73',
+                    unfinish:12,
+                    finish:34,
+                    mistake:8
+                },
+                {
+                    name:'数',
+                    color:'#94c3e7',
+                    unfinish:5,
+                    finish:17,
+                    mistake:11
+                },
+                {
+                    name:'英',
+                    color:'#bdf794',
+                    unfinish:9,
+                    finish:22,
+                    mistake:5
+                },
+                {
+                    name:'问',
+                    color:'#f7b2e7',
+                    unfinish:3,
+                    finish:5
+                }
+            ],
+            rRate:88,
+            fRate:92,
+            rank:7
+        },
+        page2Data:[
+            {
+                name:'语',
+                color:'#d6aa73',
+                mastered:8,
+                noMastered :2,
+                noStudy:3
+            },
+            {
+                name:'数',
+                color:'#94c3e7',
+                mastered:6,
+                noMastered:4,
+                noStudy:4,
+                result:42.8,
+                list:[
+                    {
+                        title:'小数除法',
+                        time:'10/11/16'
+                    },
+                    {
+                        title:'除数是小数的除法计算法则',
+                        time:'10/22/16'
+                    },
+                    {
+                        title:'数的互化',
+                        time:'11/8/16'
+                    },
+                    {
+                        title:'简易方程',
+                        time:'11/24/16'
+                    }
+                ]
+            },
+            {
+                name:'英',
+                color:'#bdf794',
+                mastered:13,
+                noMastered:6,
+                noStudy:7
+            }
+        ],
+        page4Data:{
+            weekIndex:0,
+            weekList:[
+                {
+                    weekName:'2016年下学期第六周',
+                    self:{
+                        sleep:1.8,
+                        feeling:4.4,
+                        sport:2.4
+                    },
+                    standard:{
+                        sleep:3.5,
+                        feeling:2.5,
+                        sport:4.3
+                    }
+                }
+            ]
+        },
+        page5Data:{
+            testIndex:0,
+            testList:[
+                {
+                    subject:'英',
+                    bgColor:'#bdf794',
+                    testName:'五年级上学期第一次月考',
+                    score:44,
+                    rank:'C',
+                    totalStu:241,
+                    overPer:30,
+                    detailCompare:{
+                        gL:33,
+                        cL:36,
+                        self:44,
+                        gAvg:47.06,
+                        cAvg:47.38,
+                        cH:59.50,
+                        gH:61.50,
+                        total:100
+                    },
+                    knowledgePoint:{
+                        mark:['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14','A15','A16','A17'],
+                        proto:['动词','动词时态','be动词','名词','单词','情景交际','句子','日常生活类文章','陈述句','常见字母组合的发音','特殊疑问句','情态动词','there be结构','原级','一般疑问句','名词的数','冠词']
+                    },
+                    knowledgeScore:{
+                        self:[100,100,100,68,50,50,50,28,50,40,38,50,34,30,50,0,0],
+                        grade:[40,54,50,40,50,38,52,36,54,50,36,40,42,48,52,50,36],
+                        high:[66,100,100,66,56,60,70,40,76,60,56,66,66,58,100,80,68]
+                    }
+                }
+            ]
+        },
+        page6Data:{
+            subIndex:0,
+            testIndex:0,
+            subList:[
+                {
+                    subject:'英',
+                    bgColor:'#bdf794',
+                    testList:[
+                        {
+                            test:'五年级上学期第一次月考',
+                            score:84,
+                            rank:'B',
+                            compareAverage:{
+                                adv:'情态动词、情景交际、be动词、名词、动词时态、动词',
+                                disadv:'单词、一般疑问句、句子、特殊疑问词、原级、there be结构、日常生活类文章、陈述句、名词的数、常见字母组合的发音、冠词',
+                                needEf1:'单词、一般疑问句、情态动词、情景交际、句子、特殊疑问词、原级、there be结构、日常生活类文章、陈述句、名词的数、常见字母组合的发音、冠词',
+                                needEf2:'名词'
+                            },
+                            compareHigh:{
+                                adv:'无',
+                                disadv:'单词、一般疑问句、情态动词、情景交际、句子、特殊疑问词、原级、there be结构、日常生活类文章、陈述句、动词时态、名词的数、常见字母组合的发音、冠词、动词'
+                            }
+                        }
+                    ]
+                },
+                {
+                    subject:'数',
+                    bgColor:'#94c3e7',
+                    testList:[
+                        {
+                            test:'五年级上学期第一次月考',
+                            score:84,
+                            rank:'B',
+                            compareAverage:{
+                                adv:'',
+                                disadv:'',
+                                needEf1:'',
+                                needEf2:''
+                            },
+                            compareHigh:{
+                                adv:'',
+                                disadv:''
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        page8Data:{
+            center:'114.360641,30.519771',
+            lineList:[
+                {
+                    name:'广谱屯地铁A口',
+                    pos:'114.362137,30.523597',
+                    type:0
+                },
+                {
+                    name:'华师附小',
+                    pos:'114.360802,30.521902',
+                    type:1,
+                    time1:'8点10分',
+                    time2:'8点20分'
+                },
+                {
+                    name:'图书馆',
+                    pos:'114.360646,30.519776',
+                    type:2
+                },
+                {
+                    name:'东一食堂',
+                    pos:'114.361837,30.513944',
+                    type:2
+                },
+                {
+                    name:'学子餐厅',
+                    pos:'114.362829,30.513634',
+                    type:2
+                },{
+                    name:'博雅广场',
+                    pos:'114.363559,30.517729',
+                    type:0
+                },
+                {
+                    name:'博雅广场',
+                    pos:'114.360796,30.521925',
+                    type:1,
+                    time1:'16点50分',
+                    time2:'17点11分'
+                },
+                {
+                    name:'广谱屯地铁A口',
+                    pos:'114.362137,30.523597',
+                    type:0
+                }
+            ]
+        },
+        page9Data:[
+            {
+                name:'郑大王胜维',
+                pic:'img/p91.png',
+                talk:'我居然有100天没有吃早餐，颜值都负数了',
+                info:'王胜维上学期用校园卡消费1020.20元，在郑州大学排第45800名',
+                time:'1小时前'
+            },
+            {
+                name:'赵聪老师新联',
+                pic:'img/p92.png',
+                talk:'大家都来晒晒吧',
+                info:'赵聪上学期用校园卡消费2499.50元，在河南师范大学排第14690名',
+                time:'1小时前'
+            },
+            {
+                name:'华政小猫咪',
+                pic:'img/p93.png',
+                talk:'第一次看见校园卡大数据，真是惊呆了',
+                info:'王阳上学期用校园卡消费896.50元，在华东政法大学排第42156名',
+                time:'1小时前'
+            },
+            {
+                name:'A张新伟',
+                pic:'img/p94.png',
+                talk:'还有比我少的嘛，站出来我请你吃饭',
+                info:'张新伟上学期用校园卡消费2520.20元，在郑州大学排第17800名',
+                time:'1小时前'
+            }
+        ],
+        page:0,
+        reMain:function(){
+            vm.page = 0;
+            vm.pT = 120;
+        },
+        pT:120,
+        sH:0,
+        sH1:0,
+        map:'',
+        changePage:function(flag){
+            if(flag!=7) vm.page = flag;
+            if(flag>7) vm.pT = 0;
+            if(flag==4){
+                var myChart41 = echarts.init(document.getElementById('echart41'));
+                var data4 = vm.page4Data.weekList[vm.page4Data.weekIndex];
+                var option41 = {
+                    title: {
+                        text: data4.weekName,
+                        textStyle:{
+                            fontSize:50
+                        },
+                        left:'center'
+                    },
+                    legend: {
+                        data: ['自测值', '标准值'],
+                        itemHeight:40,
+                        itemWidth:80,
+                        textStyle:{
+                            fontSize:40
+                        },
+                        bottom:0
+                    },
+                    grid: {
+                        left: '120px',
+                        right: '4%',
+                        bottom: '80px',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'value',
+                        boundaryGap: [0, 0.01],
+                        show:false
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: [{value:'睡眠指数',textStyle:{fontSize:30}},{value:'心情指数',textStyle:{fontSize:30}},{value:'运动指数',textStyle:{fontSize:30}}]
+                    },
+                    series: [
+                        {
+                            name: '自测值',
+                            type: 'bar',
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'right',
+                                    textStyle:{
+                                        fontSize:36
+                                    }
+                                }
+                            },
+                            data: [data4.self.sleep,data4.self.feeling,data4.self.sport]
+                        },
+                        {
+                            name: '标准值',
+                            type: 'bar',
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'right',
+                                    textStyle:{
+                                        fontSize:36
+                                    }
+                                }
+                            },
+                            data: [data4.self.sleep,data4.self.feeling,data4.self.sport]
+                        }
+                    ]
+                };
+                myChart41.setOption(option41);
+            }
+            if(flag==5){
+                var myChart51 = echarts.init(document.getElementById('echart51'));
+                var data5 = vm.page5Data.testList[vm.page5Data.testIndex];
+                var option51 = {
+                    title: {
+                        text: '个人与年级分数对比',
+                        textStyle:{
+                            fontSize:36
+                        },
+                        subtext:' 超过年级总体'+data5.overPer+'%\n'+' 年级总人数'+data5.totalStu+'人',
+                        subtextStyle:{
+                            color:'#ef7531',
+                            fontSize:24
+                        },
+                        left:'20px',
+                        top:'30px'
+                    },
+                    color: ['#3398DB'],
+                    grid: {
+                        top:'180px',
+                        left: '3%',
+                        right: '4%',
+                        bottom: '40px',
+                        containLabel: true
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            axisLabel: {
+                                textStyle: {
+                                    fontSize: 14
+                                }
+                            },
+                            data : ['年级最低分', '班级最低分', '你的分数', '年级平均分', '班级平均分', '班级最高分','年级最高分', '试卷满分'],
+                            axisTick: {
+                                alignWithLabel: true
+                            }
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            axisLabel: {
+                                textStyle: {
+                                    fontSize: 24
+                                }
+                            }
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'分数值',
+                            type:'bar',
+                            barWidth: '60%',
+                            label: {
+                                normal: {
+                                    show: true,
+                                    position: 'top',
+                                    textStyle:{
+                                        fontSize:24
+                                    }
+                                }
+                            },
+                            data:[data5.detailCompare.gL, data5.detailCompare.cL, {value: data5.detailCompare.self,itemStyle: {normal:{color: '#ef7531'}}}, data5.detailCompare.gAvg, data5.detailCompare.cAvg, data5.detailCompare.cH, data5.detailCompare.gH, data5.detailCompare.total]
+                        }
+                    ]
+                };
+                myChart51.setOption(option51);
+                var myChart52 = echarts.init(document.getElementById('echart52'));
+                var option52 = {
+                    title: {
+                        text: '个人知识点得分率对比',
+                        textStyle:{
+                            fontSize:36
+                        },
+                        left:'20',
+                        top:'20'
+                    },
+                    legend: {
+                        data:['个人得分率','年级得分率','高分组平均得分率'],
+                        textStyle: {
+                            fontSize: 30
+                        },
+                        top:'90',
+                        right:'0'
+                    },
+                    grid: {
+                        top:'180px',
+                        left: '3%',
+                        right: '4%',
+                        bottom: '40px',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: data5.knowledgePoint.mark,
+                        axisLabel: {
+                            textStyle: {
+                                fontSize: 24
+                            }
+                        },
+                        splitLine:{
+                            show:true
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value}%',
+                            textStyle: {
+                                fontSize: 24
+                            }
+                        }
+                    },
+                    series: [
+                        {
+                            name:'个人得分率',
+                            type:'line',
+                            stack: '个人得分率',
+                            data:data5.knowledgeScore.self
+                        },
+                        {
+                            name:'年级得分率',
+                            type:'line',
+                            stack: '年级得分率',
+                            data:data5.knowledgeScore.grade
+                        },
+                        {
+                            name:'高分组平均得分率',
+                            type:'line',
+                            stack: '高分组平均得分率',
+                            data:data5.knowledgeScore.high
+                        }
+                    ]
+                };
+                myChart52.setOption(option52);
+            }
+            if(flag==8){
+                mapEl = new AMap.Map('mapContainer',{
+                    resizeEnable: true,
+                    zoom: 100
+                });
+
+                var mapData = vm.page8Data.lineList;
+                var polylineData = [];
+
+                mapData.forEach(function(it){
+                    var icon;
+                    switch(it.type){
+                        case 0:
+                            icon = new AMap.Icon({
+                                image: 'img/p81.png',
+                                size: new AMap.Size(48, 48)
+                            });
+                            break;
+                        case 1:
+                            icon = new AMap.Icon({
+                                image: 'img/p82.png',
+                                size: new AMap.Size(48, 48)
+                            });
+                            break;
+                        case 2:
+                            icon = new AMap.Icon({
+                                image: 'img/p83.png',
+                                size: new AMap.Size(48, 48)
+                            });
+                            break;
+                        default:
+                            break;
+                    }
+                    new AMap.Marker({
+                        icon: icon,
+                        position: it.pos.split(','),
+                        offset: new AMap.Pixel(-36,-36),
+                        zIndex: 101,
+                        title: it.name,
+                        map: mapEl
+                    });
+                    polylineData.push(it.pos.split(','));
+                });
+                new AMap.Polyline({
+                    path:polylineData,
+                    strokeColor:'#319eff',
+                    strokeOpacity:0.7,
+                    strokeWeight:10,
+                    map: mapEl
+                });
+                mapEl.setFitView();
+            }
+        }
+    });
+    vm.sH = document.documentElement.clientHeight;
+    vm.sH1 = document.documentElement.clientHeight-242;
+    var mapEl;
+</script>
+<div ms-controller="report" ms-css="{'padding-top':@pT}" class="report">
+    <nav ms-if="@page<9" class="navTop">
+        <div ms-if="@page!==0" ms-click="reMain()" class="reBtn">
+            <span></span>
+        </div>
+        <h2>五年四班 袁康宁<h3>{{data[page].title}}</h3></h2>
+    </nav>
+
+    <div ms-if="!@page" class="list">
+        <ul>
+            <li ms-for="(index0,el0) in @data" ms-if="index0" ms-click="changePage(index0)">
+                <h3>{{el0.title2}}</h3>
+                <div ms-html="el0.dis"></div>
+            </li>
+        </ul>
+    </div>
+
+    <style>
+        .div1{
+            padding:0 15px 30px;
+        }
+        .ul11{
+            clear: both;
+            width:100%;
+            height:150px;
+            padding:25px 0;
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        .ul11 li:not(:last-child){
+            float: left;
+            margin-left:10px;
+        }
+        .ul11 li:last-child{
+            float: right;
+            margin-right:20px;
+        }
+        .ul11 .li1{
+            width:130px;
+            height:130px;
+            line-height: 120px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 70px;
+            text-align: center;
+        }
+        .ul11 .li2,.ul11 .li3,.ul11 .li4{
+            width:130px;
+            height:130px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 32px;
+        }
+        .ul11 .li2{
+            background: #fff url(img/pic.png) no-repeat -130px -260px;
+            background-size: 520px 650px;
+        }
+        .ul11 .li3{
+            background: #fff url(img/pic.png) no-repeat -260px -260px;
+            background-size: 520px 650px;
+        }
+        .ul11 .li4{
+            background: #fff url(img/pic.png) no-repeat -390px -260px;
+            background-size: 520px 650px;
+        }
+        .ul11 .li5{
+            height:150px;
+            line-height: 170px;
+        }
+        .ul11 .li5 span{
+            display: inline-block;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 50px;
+            color: #fff;
+            background-color: #00cf00;
+            line-height: 50px;
+        }
+
+        .ul12{
+            clear: both;
+            width:100%;
+            padding:65px 0 40px;
+            margin-top: 30px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .ul12 li:not(:last-child){
+            float: left;
+            width:33%;
+            font-size: 40px;
+            padding:60px 0;
+            text-align: center;
+        }
+        .ul12 li:nth-child(1),.ul12 li:nth-child(2){
+            border-right:2px solid #6bb6ef;
+        }
+        .ul12 li:last-child{
+            display: inline-block;
+            margin-top: 60px;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 40px;
+            color: #fff;
+            background-color: #109ad6;
+            line-height: 50px;
+        }
+    </style>
+    <div ms-if="@page == 1" class="div1">
+        <ul ms-for="el1 in @page1Data.list" class="ul11">
+            <li class="li1" ms-css="{'background-color':el1.color}">{{el1.name}}</li>
+            <li class="li2">{{el1.unfinish}}</li>
+            <li class="li3">{{el1.finish}}</li>
+            <li class="li4" ms-if="el1.mistake">{{el1.mistake}}</li>
+            <li class="li5"><span onclick="javascript:window.location.href='http://itest.pm3721.com/index.php';">继续完成</span></li>
+        </ul>
+        <ul class="ul12">
+            <li>{{page1Data.rRate}}%<br>正确率</li>
+            <li>{{page1Data.fRate}}%<br>完成率</li>
+            <li>{{page1Data.rank}}<br>同学排名</li>
+            <li><span>查看同学进度</span></li>
+        </ul>
+    </div>
+
+    <style>
+        .div2{
+            padding:0 15px 30px;
+        }
+        .ul21{
+            clear: both;
+            width:100%;
+            min-height:150px;
+            padding:25px 0;
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        .ul21 .li1,.ul21 .li2,.ul21 .li3,.ul21 .li4{
+            float: left;
+            margin-left:10px;
+        }
+        .ul21 .li5{
+            float: right;
+            margin-right:20px;
+        }
+        .ul21 .li1{
+            width:130px;
+            height:130px;
+            line-height: 120px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 70px;
+            text-align: center;
+        }
+        .ul21 .li2,.ul21 .li3,.ul21 .li4{
+            width:130px;
+            height:130px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 32px;
+        }
+        .ul21 .li2{
+            background: #fff url(img/pic.png) no-repeat -130px -260px;
+            background-size: 520px 650px;
+        }
+        .ul21 .li3{
+            background: #fff url(img/pic.png) no-repeat -260px -260px;
+            background-size: 520px 650px;
+        }
+        .ul21 .li4{
+            background: #fff url(img/pic.png) no-repeat 0 -390px;
+            background-size: 520px 650px;
+        }
+        .ul21 .li5{
+            height:150px;
+            line-height: 170px;
+        }
+        .ul21 .li5 span{
+            display: inline-block;
+            padding: 25px 40px;
+            border-radius: 15px;
+            font-size: 40px;
+            color: #fff;
+            background-color: #109ad6;
+            line-height: 50px;
+        }
+        .ul21 .li5 p{
+            padding: 30px 60px;
+            font-size: 40px;
+            color: #000;
+            line-height: 100%;
+            text-align: center;
+        }
+        .ul21 .li6{
+            clear: both;
+            background-color: #fff;
+        }
+
+        .ul22{
+            clear: both;
+            width:100%;
+            background-color: #fff;
+            text-align: center;
+        }
+        .ul22 li:not(:last-child){
+            float: left;
+            font-size: 24px;
+            padding:66px 0;
+            text-align: center;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow: hidden;
+        }
+        .ul22 li:nth-child(1){
+            width:50%;
+        }
+        .ul22 li:nth-child(2),.ul22 li:nth-child(3){
+            width:20%;
+        }
+        .ul22 li:last-child{
+            display: inline-block;
+            margin: 30px 0;
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 40px;
+            color: #fff;
+            background-color: #109ad6;
+            line-height: 50px;
+        }
+    </style>
+    <div ms-if="@page == 2" class="div2">
+        <ul ms-for="(index2,el2) in @page2Data" class="ul21">
+            <li class="li1" ms-css="{'background-color':el2.color}">{{el2.name}}</li>
+            <li class="li2">{{el2.mastered}}</li>
+            <li class="li3">{{el2.noMastered}}</li>
+            <li class="li4" ms-if="el2.noStudy">{{el2.noStudy}}</li>
+            <li class="li5" ms-if="index2 != 1"><span>查看详情</span></li>
+            <li class="li5" ms-if="index2 == 1"><p>{{el2.result}}%<br>掌握率</p></li>
+            <li class="li6" ms-if="index2 == 1">
+                <ul class="ul22">
+                    <li>知识点名称</li>
+                    <li>测试时间</li>
+                    <li style="display: none"></li>
+                </ul>
+                <ul ms-for="el22 in @page2Data[index2].list" class="ul22">
+                    <li>{{el22.title}}</li>
+                    <li>{{el22.time}}</li>
+                    <li><span>查看错题</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div ms-if="@page == 3" class="div3">
+        <img ms-attr="{src:@data[@page].url}" ms-css="{'height':@sH}"/>
+    </div>
+
+    <style>
+        .div4{
+            padding: 20px;
+            background-color: #fff;
+        }
+        .div4 .navBot{
+            margin-top: 20px;
+            padding:30px;
+            height:70px;
+        }
+        .div4 .navBot span{
+            color:#fff;
+            background-color: #5fbee8;
+            padding:20px 40px;
+            font-size: 36px;
+            border-radius: 10px;
+        }
+        .div4 .navBot span:first-child{
+            float: left;
+        }
+        .div4 .navBot span:last-child{
+            float: right;
+        }
+    </style>
+    <div ms-if="@page == 4" class="div4">
+        <div id="echart41" style="width: 100%;height:1000px;"></div>
+        <div class="navBot">
+            <span>成长记录</span>
+            <span>查看详情</span>
+        </div>
+    </div>
+
+    <style>
+        .dl51{
+            position: relative;
+            margin-top: 30px;
+            background-color: #fff;
+        }
+        .dl51 dt{
+            margin:0 10px;
+            padding:0 160px 0 200px;
+            border-bottom: 4px solid #aaa;
+            position: relative;
+        }
+        .dl51 dt>span:first-child{
+            width:120px;
+            height:120px;
+            line-height: 110px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 60px;
+            text-align: center;
+            position: absolute;
+            top:20px;
+            left:20px;
+        }
+        .dl51 dt>span:last-child{
+            display: inline-block;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 30px;
+            color: #fff;
+            background-color: #109ad6;
+            line-height: 40px;
+            position: absolute;
+            bottom: 25px;
+            right: 30px;
+        }
+        .dl51 dt>div{
+            font-size: 40px;
+            line-height: 300%;
+        }
+        .dl51 dt>div span:last-child{
+            margin-left:80px;
+        }
+        .ul51{
+            display: inline-block;
+            width:100%;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+        .ul51 li{
+            float: left;
+            width:25%;
+            font-size: 24px;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        .ul51 li h5{
+            display: inline-block;
+            width:40px;
+            background-color: #ef616a;
+            padding:5px 10px;
+            margin-right: 5px;
+            color: #fff;
+        }
+        .ul51 li:nth-child(1) h5,.ul51 li:nth-child(2) h5,.ul51 li:nth-child(3) h5{
+            background-color: #4ab9c6;
+        }
+        .ul51 li:nth-child(4) h5{
+            background-color: #999;
+        }
+    </style>
+    <div ms-if="@page == 5" class="div5">
+        <dl ms-for="(index51,el51) in @page5Data.testList" class="dl51">
+            <dt>
+                <span ms-css="{'background-color':el51.bgColor}">{{el51.subject}}</span>
+            <div>
+                <h3>{{el51.testName}}</h3>
+                <span>得分: {{el51.score}}分</span>
+                <span>成绩等级: {{el51.rank}}</span>
+            </div>
+            <span>查看详情</span>
+            </dt>
+            <dd ms-if="index51 === @page5Data.testIndex">
+                <div id="echart51" style="width: 100%;height:1000px;"></div>
+                <div id="echart52" style="width: 100%;height:1000px;margin-top: 20px;border-top: 4px solid #aaa;"></div>
+                <ul class="ul51">
+                    <li ms-for="(index52,el52) in el51.knowledgePoint.proto">
+                        <h5>{{el51.knowledgePoint.mark[index52]}}</h5>
+                        <span>{{el52}}</span>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+
+    <style>
+        .dl61{
+            position: relative;
+            margin-top: 30px;
+        }
+        .dl61 dt{
+            margin:0 10px;
+            padding:0 160px 0 200px;
+            background-color: #fff;
+        }
+        .dl61 dt>span:first-child{
+            width:120px;
+            height:120px;
+            line-height: 110px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 60px;
+            text-align: center;
+            position: absolute;
+            top:20px;
+            left:20px;
+        }
+        .dl61 dt>span:last-child{
+            display: inline-block;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 30px;
+            color: #fff;
+            background-color: #109ad6;
+            line-height: 40px;
+            position: absolute;
+            bottom: 45px;
+            right: 30px;
+        }
+        .dl61 dt>div{
+            font-size: 40px;
+            line-height: 400%;
+        }
+        .dl61 dt>div span:last-child{
+            margin-left:80px;
+        }
+        .dl61 dd{
+            padding:10px;
+        }
+        .ul62>li{
+            border:2px solid #dee7ef;
+            border-top:4px solid #3ec6aa;
+            background-color: #fff;
+            font-size: 24px;
+            margin-top: 15px;
+        }
+        .ul62 h4{
+            display: inline-block;
+            background-color: #3ec6aa;
+            color:#fff;
+            font-size: 30px;
+            padding-left: 15px;
+        }
+        .ul63{
+            padding:40px;
+        }
+        .ul63 li{
+            line-height: 180%;
+        }
+        .ul63 li:nth-child(2),.ul63 li:nth-child(3){
+            padding-left: 140px;
+            position: relative;
+        }
+        .ul63 li:nth-child(2) h5,.ul63 li:nth-child(3) h5{
+            display: inline-block;
+            position: absolute;
+            top:0;
+            left:0;
+            font-size: 24px;
+        }
+        .ul63 span{
+            color:#e78247;
+        }
+    </style>
+    <div ms-if="@page == 6" class="div6">
+        <ul class="ul61">
+            <li ms-for="(index61,sub) in @page6Data.subList">
+                <dl ms-for="(index62,tes) in sub.testList" class="dl61">
+                    <dt ms-if="index61 !== @page6Data.subIndex ||index62 !== @page6Data.testIndex">
+                        <span ms-css="{'background-color':sub.bgColor}">{{sub.subject}}</span>
+                    <div>
+                        <h3>{{tes.test}}</h3>
+                        <span>得分: {{tes.score}}分</span>
+                        <span>成绩等级: {{tes.rank}}</span>
+                    </div>
+                    <span>查看详情</span>
+                    </dt>
+                    <dd ms-if="index61 === @page6Data.subIndex &&index62 === @page6Data.testIndex">
+                        <ul class="ul62">
+                            <li>
+                                <h4>一、与全年级平均相比</h4>
+                                <ul class="ul63">
+                                    <li>这些情况表明，与全年级的群体平均水平相比，你在以下知识点上</li>
+                                    <li><h5>呈现优势：</h5><span>{{tes.compareAverage.adv}}</span></li>
+                                    <li><h5>呈现劣势：</h5><span>{{tes.compareAverage.disadv}}</span></li>
+                                    <li>因不熟练急需加强学习的知识点有：<span>{{tes.compareAverage.needEf1}}</span></li>
+                                    <li>因基本熟练需进一步提升的知识点有：<span>{{tes.compareAverage.needEf2}}</span></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h4>二、与高分组平均相比</h4>
+                                <ul class="ul63">
+                                    <li>另外，与高分组的平均水平相比，你在以下知识点上</li>
+                                    <li><h5>呈现优势：</h5><span>{{tes.compareHigh.adv}}</span></li>
+                                    <li><h5>呈现劣势：</h5><span>{{tes.compareHigh.disadv}}</span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+
+    <style>
+        .div8{
+            width:100%;
+            height:100%;
+            position: relative;
+        }
+        .hisNav{
+            width: 100%;
+            position: absolute;
+            left:0;
+            bottom:0;
+            background-color: #fff;
+            text-align: center;
+            border-top: 2px solid #333;
+            padding-top: 20px;
+        }
+        .hisNav span:nth-child(2){
+            font-size: 50px;
+            border:1px solid #333;
+            display: inline-block;
+            position: relative;
+            bottom: 20px;
+            line-height: 150%;
+        }
+        .hisNav .goB,.hisNav .goT,.hisNav .goH{
+            display: inline-block;
+            width:80px;
+            height:80px;
+            margin:0 50px;
+        }
+        .goB{
+            background:transparent url(img/pic.png) no-repeat 0 -80px;
+            background-size: 320px 400px;
+        }
+        .goT{
+            background:transparent url(img/pic.png) no-repeat 0 -160px;
+            background-size: 320px 400px;
+        }
+        .goH{
+            background:transparent url(img/pic.png) no-repeat -80px -80px;
+            background-size: 320px 400px;
+        }
+    </style>
+    <div ms-if="@page == 8" class="div8">
+        <div id="mapContainer" ms-css="{'height':@sH1}" style="width:100%;position: absolute;top: 121px;left: 0;"></div>
+        <div class="hisNav">
+            <span class="goB"></span>
+            <span>轨迹列表</span>
+            <span class="goT"></span>
+            <span class="goH"></span>
+        </div>
+    </div>
+
+    <style>
+        .div9 nav{
+            height:120px;
+            line-height: 120px;
+            background-color: #313842;
+            position: relative;
+            padding:0 180px;
+            color: #fff;
+        }
+        .div9 nav .reBtn91{
+            position: absolute;
+            top:0;
+            left:0;
+            padding:34px;
+            line-height: 100%;
+            border-right: 1px solid #000;
+        }
+        .div9 nav .reBtn91 span{
+            display: inline-block;
+            width:50px;
+            height:50px;
+            background: transparent url(img/pic.png) no-repeat -50px 0;
+            background-size: 200px 250px;
+        }
+        .div9 nav .camera91{
+            width:50px;
+            height:50px;
+            position: absolute;
+            top:36px;
+            right: 40px;
+            background: transparent url(img/pic.png) no-repeat -150px 0;
+            background-size: 200px 250px;
+        }
+        .div9 nav .title91{
+            font-size: 50px;
+        }
+        .div9 .li91{
+            position: relative;
+            padding:40px 0 40px 160px;
+            border-bottom: 2px solid #666;
+            font-size: 36px;
+            line-height: 180%;
+            background-color: #fff;
+        }
+        .div9 .li91 .pic{
+            width:100px;
+            height:100px;
+            position: absolute;
+            top:55px;
+            left:40px;
+            background-size: 100px 100px;
+        }
+        .div9 .li91 h4{
+            color:#73758c;
+        }
+        .div9 .li91 .info91{
+            padding:0 10px 0 140px;
+            margin:20px 40px 20px 0;
+            background-color: #efebef;
+            position: relative;
+        }
+        .div9 .li91 .info91 .book91{
+            display: inline-block;
+            width:100px;
+            height:100px;
+            background: transparent url(img/pic.png) no-repeat -200px 0;
+            background-size: 400px 500px;
+            position: absolute;
+            top:15px;
+            left:15px;
+        }
+        .div9 .li91 .time91{
+            padding-right: 40px;
+            position: relative;
+            color: #b1b1b1;
+            text-align: right;
+        }
+        .div9 .li91 .time91 span{
+            float: left;
+        }
+        .div9 .li91 .time91 span:first-child{
+            margin-right:20px;
+        }
+        .moreIcon{
+            background-color: #848ea5;
+            width:80px;
+            height:50px;
+            position: relative;
+            display: inline-block;
+        }
+        .moreIcon:before{
+            content: '';
+            width:0;
+            height:0;
+            border-top: 10px solid transparent;
+            border-right: 16px solid #848ea5;
+            border-bottom: 10px solid transparent;
+            position: absolute;
+            top:15px;
+            left:-14px;
+        }
+        .moreIcon li{
+            float: left;
+            width:10px;
+            height:10px;
+            border-radius: 50%;
+            background-color: #fff;
+            margin:20px 15px;
+        }
+    </style>
+    <div ms-if="@page == 9" class="div9">
+        <nav>
+            <div class="reBtn91" ms-click="reMain()">
+                <span></span>
+            </div>
+            <span class="title91">朋友圈</span>
+            <span class="camera91"></span>
+        </nav>
+        <ul>
+            <li ms-for="el9 in @page9Data" class="li91">
+                <span ms-css="{'background-image':'url('+el9.pic+')'}" class="pic"></span>
+                <h4>{{el9.name}}</h4>
+                <span class="talk">{{el9.talk}}</span>
+                <div class="info91">
+                    <span class="book91"></span>
+                    <span>{{el9.info}}</span>
+                </div>
+                <div class="time91">
+                    <span>{{el9.time}}</span>
+                    <span>玩校app</span>
+                    <ul class="moreIcon">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

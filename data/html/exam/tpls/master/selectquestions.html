@@ -1,0 +1,166 @@
+		    	<script type="text/javascript">
+		    	function selectall(obj,a,b){
+		    		$(".sbox").prop('checked', $(obj).is(':checked'));
+		    		$(".sbox").each(function(){
+		    			selectquestions(this,a,b);
+		    		});
+		    	}
+		    	</script>
+		    	<form action="index.php?exam-master-exams-selectquestions" method="post" direct="modal-body">
+					<table class="table form-inline">
+						<tr>
+							<td class="form-inline" colspan="2">
+								录入时间：
+								<input type="text" name="search[stime]" size="9"  class="form-control datetimepicker" data-date="2017-04-05" data-date-format="yyyy-mm-dd" id="stime" value=""/> - <input class="form-control datetimepicker" data-date="2017-04-05" data-date-format="yyyy-mm-dd" size="9" type="text" name="search[etime]" id="etime" value=""/>
+							</td>
+							<td>
+								关键字：
+								<input name="search[keyword]" class="form-control" size="8" type="text" value=""/>
+							</td>
+						</tr>
+						<tr>
+							<td class="form-inline">
+								<select name="search[questionisrows]" class="form-control">
+							  		<option value="0">普通试题</option>
+									<option value="1">题帽题</option>
+						  		</select>
+						  	</td>
+						  	<td>
+								<input type="hidden" name="search[questiontype]" value="1">
+								<input type="hidden" name="search[questionsubjectid]" value="5">
+				        		录入人：<input name="search[username]" class="form-control" size="5" type="text" value=""/>
+				        	</td>
+				        	<td>
+								难度：<select name="search[questionlevel]" class="combox form-control">
+							  		<option value="0">难度不限</option>
+									<option value="1">易</option>
+									<option value="2">中</option>
+									<option value="3">难</option>
+						  		</select>
+							</td>
+				        </tr>
+				        <tr>
+							<td>
+						  		知识点：<select name="search[questionsectionid]" class="combox form-control" id="sectionselect" target="knowsselect" refUrl="?exam-master-questions-ajax-getknowsbysectionid&sectionid={value}">
+							  		<option value="">选择知识点</option>
+							  									  									  		<option value="20">五年级</option>
+							  									  								  		</select>
+						  	</td>
+						  	<td>
+						  		<select name="search[questionknowsid]" id="knowsselect" class="form-control">
+							  		<option value="">选择知识点</option>
+							  								  		</select>
+						  	</td>
+						  	<td>
+								<button class="btn btn-primary" type="submit">检索</button>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<div class="input"></div>
+								<table class="table table-hover table-bordered">
+					<thead>
+						<tr class="info">
+					        <th width="50"><input type="checkbox" onclick="javascript:selectall(this,'iselectquestions_1','ialreadyselectnumber_1');"/></th>
+					        <th width="100">试题类型</th>
+					        <th>试题内容</th>
+					        <th width="50">难度</th>
+						</tr>
+					</thead>
+					<tbody>
+										        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="958" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="how is __ going?
+not bad.">how is __ going?
+not bad.</a>
+						  </td>
+						  <td>中</td>
+				        </tr>
+				        				        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="957" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="He can&rsquo;t hear you because there is __ noise here.">He can&rsquo;t hear you because there is __ noise here.</a>
+						  </td>
+						  <td>中</td>
+				        </tr>
+				        				        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="956" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="Don&rsquo;t worry. __ will be ok.">Don&rsquo;t worry. __ will be ok.</a>
+						  </td>
+						  <td>难</td>
+				        </tr>
+				        				        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="955" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="__ is your father?
+&mdash;A soldier.">__ is your father?
+&mdash;A soldier.</a>
+						  </td>
+						  <td>难</td>
+				        </tr>
+				        				        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="954" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="Which of the following sentences is right?
+---_______">Which of the following sentences is right?
+---_______</a>
+						  </td>
+						  <td>难</td>
+				        </tr>
+				        				        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="953" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="Kate needs an empty paper cup, __ rice and __ paper to make a shaker.">Kate needs an empty paper cup, __ rice and __ paper to make a shaker.</a>
+						  </td>
+						  <td>中</td>
+				        </tr>
+				        				        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="952" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="My class __ 40 students, Now the class __ English.">My class __ 40 students, Now the class __ English.</a>
+						  </td>
+						  <td>难</td>
+				        </tr>
+				        				        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="951" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="The twins have lived in Japan for some time, so they can speak __ Japanese.">The twins have lived in Japan for some time, so they can speak __ Japanese.</a>
+						  </td>
+						  <td>中</td>
+				        </tr>
+				        				        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="950" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="___will be in diffent teams in the final game.">___will be in diffent teams in the final game.</a>
+						  </td>
+						  <td>易</td>
+				        </tr>
+				        				        <tr>
+				          <td><input rel="1" class="sbox" type="checkbox" name="ids[]" value="949" onclick="javascript:selectquestions(this,'iselectquestions_1','ialreadyselectnumber_1')"/></td>
+				          <td>单选题</td>
+				          <td>
+						  	  <a href="javascript:;" title="__ piano is too old, but she still likes playing it.">__ piano is too old, but she still likes playing it.</a>
+						  </td>
+						  <td>中</td>
+				        </tr>
+				        					</tbody>
+				</table>
+				<ul class="pagination pull-right">
+	            	<li><a href="#" class="current">1</a></li><li><a target="modal-body" class="ajax" href="index.php?exam-master-exams-selectquestions&search[questionsubjectid]=5&search[questiontype]=1&questionids=&rowsquestionids=&0.6805934908393656&page=2">2</a></li><li><a>共20条数据</a></li>		        </ul>
+		    	<script type="text/javascript">
+		    		jQuery(function($) {
+						markSelectedQuestions('ids[]','iselectquestions_1');
+		    		});
+		    	</script>
+				

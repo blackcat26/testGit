@@ -1,4 +1,4 @@
-        <header class="container-fluid" style="border-bottom:1px solid #ccc;">
+		<header class="container-fluid" style="border-bottom:1px solid #ccc;">
             <!--
             <h5 class="text-center">
                 <em style="font-size:2rem;" class="pull-left glyphicon glyphicon-chevron-left" onclick="javascript:$.goPrePage();"></em>
@@ -15,7 +15,14 @@
 				<!--
 				<h4 class="text-center" style="padding:1rem;">用户登录</h4>
 				-->
+
+				<!--增加微信登录判断，原先的为else部分-->
+				{x2;if:$wxreport == 1}
+				<form class="col-xs-12" method="post" action="index.php?user-phone-login&&wxreport=2">
+				{x2;else}
 				<form class="col-xs-12" method="post" action="index.php?user-phone-login">
+				{x2;endif}
+
 					<div class="form-group input-group">
 						<span class="input-group-addon" id="basic-addon1" style="background-color:#ccc;"><a class="glyphicon glyphicon-credit-card" style="font-size:24px;"></a></span>
 						<input class="form-control input-lg" name="args[username]" datatype="userName" needle="needle" msg="请你输入用户名" placeholder="请输入用户名">
@@ -26,7 +33,13 @@
 					</div>
 					<input type="hidden" value="1" name="userlogin"/>
 					<button type="submit" class="btn btn-primary btn-block btn-lg">登录</button>
+
+					<!--增加微信登录判断，原先的为else部分-->
+                    {x2;if:$wxreport == 1}
+					<a class="btn btn-default btn-block btn-lg ajax" href="index.php?user-phone-register&&wxreport=3" data-target="user" data-page="user" style="margin-top:10px;">注册账号</a>
+					{x2;else}
 					<a class="btn btn-default btn-block btn-lg ajax" href="index.php?user-phone-register" data-target="user" data-page="user" style="margin-top:10px;">注册账号</a>
+					{x2;endif}
 				</form>
 			</div>
 		</div>

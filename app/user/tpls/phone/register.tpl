@@ -40,7 +40,13 @@
                     </div>
                     -->
                     <button type="submit" class="btn btn-warning btn-block btn-lg">注册</button>
+
+                    <!--增加微信注册判断，原先的为else部分-->
+                    {x2;if:$wxreport == 3}
+                    <a class="btn btn-default btn-block btn-lg ajax" href="index.php?user-phone-login&&wxreport=1" data-target="user" data-page="user" style="margin-top:10px;">登录</a>
+                    {x2;else}
                     <a class="btn btn-default btn-block btn-lg ajax" href="index.php?user-phone-login" data-target="user" data-page="user" style="margin-top:10px;">登录</a>
+                    {x2;endif}
                 </form>
             </div>
 		</div>

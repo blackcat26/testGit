@@ -17,21 +17,42 @@ class app
 		$this->html = $this->G->make('html');
 		$this->session = $this->G->make('session');
 		$this->_user = $this->session->getSessionUser();
-		if(!$this->_user['sessionuserid'])
-		{
-			if($this->ev->get('userhash'))
-			exit(json_encode(array(
-				'statusCode' => 301,
-				"message" => "请您重新登录",
-			    "callbackType" => 'forward',
-			    "forwardUrl" => "index.php?user-phone-login"
-			)));
-			else
-			{
-				header("location:index.php?user-phone-login");
-				exit;
-			}
-		}
+
+		//增加微信学情报告登录判断，原本的仅为else部分
+        if($this->ev->get('wxreport'))
+        {
+            //此时是从微信学情报告处进入系统
+            if(!$this->_user['sessionuserid'])
+            {
+                //如果没有session则证明之前没有登录过，通过传参数告知系统这是从微信学情报告处进入的，然后载入登录界面
+                exit(header("location:index.php?user-phone-login&&wxreport=1"));
+            }
+            else
+            {
+                //之前已经登录，直接跳转到学情报告界面
+                exit(header("location:/wechat/report/report3.php"));
+            }
+        }
+        else
+        {
+            //此时是从其他入口进入系统
+            if(!$this->_user['sessionuserid'])
+            {
+                if($this->ev->get('userhash'))
+                exit(json_encode(array(
+                    'statusCode' => 301,
+                    "message" => "请您重新登录",
+                    "callbackType" => 'forward',
+                    "forwardUrl" => "index.php?user-phone-login"
+                )));
+                else
+                {
+                    header("location:index.php?user-phone-login");
+                    exit;
+                }
+            }
+        }
+
 		$this->user = $this->G->make('user','user');
 		$this->exam = $this->G->make('exam','exam');
 		$this->basic = $this->G->make('basic','exam');

@@ -1,3 +1,3 @@
 <?php
-require("report.html");
+    require("report.html");
 ?>

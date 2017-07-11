@@ -18,6 +18,12 @@ class action extends app
 
 	private function index()
 	{
+		//增加微信学情报告登录部分，原先没有这部分
+		if($this->ev->get('wxreport')==1)
+		{
+            $this->tpl->assign('wxreport',1);
+		}
+
 		$catids = array();
 		$catids['index'] = $this->category->getCategoriesByArgs(array(array("AND","catindex > 0")));
 		$contents = array();

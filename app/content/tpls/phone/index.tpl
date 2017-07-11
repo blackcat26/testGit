@@ -6,7 +6,13 @@
     <div class="pages" id="page1">
 {x2;endif}
     	<header class="container-fluid" style="background-color:#337AB7;visibility:hidden">
-    	    <a id="skipFun" href="index.php?exam-phone-index" class="ajax" data-page="exam" data-target="exam"></a>
+
+			<!--增加微信登录判断，原先的为else部分-->
+            {x2;if:$wxreport == 1}
+			<a id="skipFun" href="index.php?exam-phone-index&&wxreport=2" class="ajax" data-page="exam" data-target="exam"></a>
+			{x2;else}
+			<a id="skipFun" href="index.php?exam-phone-index" class="ajax" data-page="exam" data-target="exam"></a>
+			{x2;endif}
 
     	    <!--
 			<h5 class="text-center">
